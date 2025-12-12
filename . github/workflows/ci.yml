@@ -8,7 +8,7 @@ jobs:
    name: Maven Build
    runs-on: ubuntu-latest
    steps:
-     - uses: actions/checkout@v6.0.1
+     - uses: actions/checkout@v3
      - name: Setup Java 17
        uses: actions/setup-java@v3
        with:
@@ -18,6 +18,6 @@ jobs:
      - name: Setup Testcontainers Cloud Client
        uses: atomicjar/testcontainers-cloud-setup-action@v1
        with:
-         token: ${{ secrets.TC_CLOUD_TOKEN }}
+         token: ${{ secrets.aj_tcc_svc_YVzGTuDO5cjf7-eKXaxiUJJadFUSK3meJfPyW1u9nFcK4 }}
      - name: Build with Maven
        run: ./mvnw verify
