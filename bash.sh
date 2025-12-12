@@ -14,6 +14,10 @@ cd testcontainers-cloud-go-example
 go mod download
 go test -v -count=1
 
+docker run --rm -it --pid container:my-php \
+  --mount=type=image,source=<your-namespace>/dhi-busybox,destination=/dbg,ro \
+  <your-namespace>/dhi-php:<tag> /dbg/bin/sh
+
 
 git clone https://github.com/AtomicJar/testcontainers-cloud-nodejs-example
 cd testcontainers-cloud-nodejs-example
