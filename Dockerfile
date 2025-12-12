@@ -11,3 +11,8 @@ RUN pecl download redis \
 FROM <your-namespace>/dhi-php:<tag>-fpm
 COPY --from=builder /usr/local/lib/php/extensions /usr/local/lib/php/extensions
 RUN echo "extension=redis.so" > $PHP_INI_DIR/conf.d/redis.ini
+
+RUN pecl install redis
+
+FROM <your-namespace>/dhi-php:<tag>-fpm
+COPY --from=builder $PHP_PREFIX/lib/php/extensions $PHP_PREFIX/lib/php/extensions
