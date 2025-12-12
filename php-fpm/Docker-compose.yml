@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  php:
+    image: <kubuverse>/dhi-php:<tag>-fpm
+    volumes:
+      - ./src:/var/www/html
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
